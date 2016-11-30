@@ -2,6 +2,7 @@ package com.lzh.monitor.requestcopy.multiplay;
 
 import com.lzh.monitor.requestcopy.module.RequestModule;
 import com.lzh.monitor.requestcopy.multiplay.threads.RequestThread;
+import com.lzh.monitor.requestcopy.utils.Setting;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,7 +12,7 @@ import java.util.concurrent.Executors;
  */
 public class MultiRequest {
 
-    private static final int MAX_HANDLE_IMAGE_THREAD_COUNT = 10;
+    private static final int MAX_HANDLE_IMAGE_THREAD_COUNT = Setting.getInt("MAX_THREAD_COUNT" , 10);
     private static final ExecutorService putExecutors = Executors.newFixedThreadPool(MAX_HANDLE_IMAGE_THREAD_COUNT);
 
 
