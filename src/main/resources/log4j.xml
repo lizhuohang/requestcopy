@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+    <appender name="myConsole" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{MM-dd HH:mm:ss,SSS\} %-5p] [%t] %c{2\}:%L - %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="info" />
+            <param name="levelMax" value="off" />
+            <param name="AcceptOnMatch" value="true" />
+        </filter>
+    </appender>
+
+    <appender name="activexAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/Users/lizhuohang/Downloads/log/copy.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{MM-dd HH:mm:ss SSS\} %-5p] [%t] %c{3\}:%L - %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="insuranceAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/Users/lizhuohang/Downloads/log/insurance.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{MM-dd HH:mm:ss SSS\} %-5p] [%t] %c{3\}:%L - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="InsuranceLogger">
+        <level value="info" />
+        <appender-ref ref="insuranceAppender" />
+    </logger>
+
+    <root>
+        <priority value="info" />
+        <appender-ref ref="myConsole" />
+        <appender-ref ref="activexAppender" />
+    </root>
+</log4j:configuration>
