@@ -20,7 +20,6 @@ import java.util.Set;
  */
 public class LogReader implements Runnable {
     private File logFile = null;
-    //    private String filepath = "/usr/local/image-proxy-tomcat/logs/";
     private String filepath = Setting.getString("LOGPATH");
     private String logfile_b = Setting.getString("LOGB");
     private String logfile_a = Setting.getString("LOGA");
